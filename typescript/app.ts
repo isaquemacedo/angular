@@ -1,32 +1,38 @@
-let message: string = "Help me, Obi-Wan Kenobi. You're my only hope!"
-console.log(message);
+class Spacecraft {
+  constructor (public propulsor: string) {}
 
-let episode: number = 4
-console.log(episode)
-episode++
-console.log("Next episode is " + episode)
-
-let favoriteDroid: string
-favoriteDroid = "BB-8"
-console.log("My favorite droind is " + favoriteDroid)
-
-let isEnoughToBeatMF = function (parsecs: number): boolean {
-    return parsecs < 12;
+  jumpIntoHyperspace() {
+    console.log(`Entering IntoHyperspace whit ${this.propulsor}`)
+  }
 }
 
-let distance = 11
-console.log(`Is ${distance} parsecs enough to beat Millenium Falcon ? ${isEnoughToBeatMF(distance) ? 'YES': 'No'}`);
+let ship = new Spacecraft('hiperdrive')
+ship.jumpIntoHyperspace()
 
-let call = (name: string) => console.log(`Do you copy, ${name}? `);
-call('R2')
+class MileniumFalcon extends Spacecraft implements Containership {
 
-function inc(speed: number, inc: number = 1): number {
-    return speed + inc
+  cargoContainer: number
+
+  constructor() {
+    super('hyperdrive')
+    this.cargoContainer = 4
+  }
+
+  jumpIntoHyperspace() {
+    if ((Math.random() * 10 ) >= 5) {
+        super.jumpIntoHyperspace()
+    } else { console.log('Failed to jump into hyperspace')}
+  }
 }
 
-let whatsIsInc = (inc: number)  => inc <= 0 ? 0: inc;
+let falcon = new MileniumFalcon()
+falcon.jumpIntoHyperspace()
 
-console.log(`ìnc (5,1) = ${inc(5,1)}`)
-console.log(`inc (5) = ${inc(5)}`)
-console.log(`inc is 0 = ${inc(whatsIsInc(0))}`)
-console.log(`inc is 8 = ${inc(whatsIsInc(8))}`)
+interface Containership {
+    cargoContainer: number
+    propertyOptional?: string
+}
+
+let goodForTheJob = ( ship: Containership) => ship.cargoContainer > 2
+
+console.log(`Is falcon good for the joob? ${goodForTheJob(falcon) ? 'Yes' : 'No'}`)
