@@ -9,7 +9,9 @@ exports.__esModule = true;
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'First app';
+        this.luke = { name: 'Luke', isJedi: true, temple: 'Coruscant - Edit' };
+        this.han = { name: 'Han Solo', isJedi: false };
+        this.leia = { name: 'Leia', isJedi: false };
     }
     AppComponent = __decorate([
         core_1.Component({
