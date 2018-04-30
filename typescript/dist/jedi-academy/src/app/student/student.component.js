@@ -9,16 +9,18 @@ exports.__esModule = true;
 var core_1 = require("@angular/core");
 var StudentComponent = /** @class */ (function () {
     function StudentComponent() {
-        this.name = 'Luke';
-        this.isJedi = true;
     }
     StudentComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        core_1.Input()
+    ], StudentComponent.prototype, "name");
     StudentComponent = __decorate([
         core_1.Component({
             selector: 'jad-student',
             templateUrl: './student.component.html',
-            styleUrls: ['./student.component.css']
+            styleUrls: ['./student.component.css'],
+            inputs: ['isJedi']
         })
     ], StudentComponent);
     return StudentComponent;
