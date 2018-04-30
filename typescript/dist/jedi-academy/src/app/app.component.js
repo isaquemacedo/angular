@@ -9,13 +9,12 @@ exports.__esModule = true;
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'jad';
+        this.title = 'First app';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'jad-root',
-            templateUrl: './app.component.html',
-            styleUrls: ['./app.component.css']
+            templateUrl: './app.component.html'
         })
     ], AppComponent);
     return AppComponent;
